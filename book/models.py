@@ -7,10 +7,16 @@ class Person(models.Model):
     description = models.TextField(null=True)
     address = models.ForeignKey('Address')
     
+    def __str__(self):
+        return '{} {}'.format(self.name,self.surname)
+    
 class Address(models.Model):
     city = models.CharField(max_length=64)
     street = models.CharField(max_length=64)
     house_number = models.IntegerField()
+    
+    def __str__(self):
+        return '{} {}/{}'.format(self.city,self.street,self.house_number)
 
 TYPE=((1,'home'),
       (2,'work'),
@@ -22,9 +28,15 @@ class Telephone(models.Model):
     type = models.IntegerField(choices=TYPE)
     person = ForeignKey(Person)
     
+    def __str__(self):
+        return '{} {}'.format(self.tel_number,self.get_type_display())
+    
 class Email(models.Model):
     email = models.EmailField()
     person = ForeignKey(Person)
+    
+    def __str__(self):
+        return '{}'.format(self.email)
 
 
     

@@ -158,40 +158,39 @@
 
     <body>
     <div class="container">  
-      <form id="contact" action="" method="post">
-      {% csrf_token %}
+      <form id="contact" action="" method="post" >{% csrf_token %}{% csrf_token %}
         <h3>Add Person Form</h3>
         <h4>Please fill in details below</h4>
         <fieldset>
-          <input placeholder="Your name" name="name" type="text" tabindex="1" required autofocus>
+          <input placeholder="Your name" name="name" type="text" value="{{person.name}}" tabindex="1" required autofocus>
         </fieldset>
         <fieldset>
-          <input placeholder="Your surname" name="surname" type="text" tabindex="1" required autofocus>
+          <input placeholder="Your surname" name="surname" type="text" value="{{person.surname}}" tabindex="1" required autofocus>
         </fieldset>
         <fieldset>
-          <input placeholder="Your city" name="city" type="text" tabindex="1" required autofocus>
+          <input placeholder="Your city" name="city" type="text" value="NEW" tabindex="1" required autofocus>
         </fieldset>
         <fieldset>
-          <input placeholder="Your street" name="street" type="text" tabindex="1" required autofocus>
+          <input placeholder="Your street" name="street" type="text" value="NEW" tabindex="1" required autofocus>
         </fieldset>
         <fieldset>
-          <input placeholder="Your house number" name="house_number" type="text" tabindex="1" required autofocus>
+          <input placeholder="Your house number" name="house_number" type="text" value="33" tabindex="1" required autofocus>
         </fieldset>
         <fieldset>
-          <input placeholder="Your Email Address" name="email" type="email" tabindex="2" required>
+          <input placeholder="Your Email Address" name="email" type="email" value="new@new.pl" tabindex="2" required>
         </fieldset>
         <fieldset>
-          <input placeholder="Your Phone Number" name="telephone" type="tel" tabindex="3" required>
+          <input placeholder="Your Phone Number" name="telephone" type="tel" value="123-456-789" tabindex="3" required>
         </fieldset>
         <fieldset>
-          <select name="type" form="carform">
+          <select name="type">
 			  <option value="1">Home</option>
 			  <option value="2">Work</option>
 			  <option value="3">Other</option>
 			</select>
         </fieldset>        
         <fieldset>
-          <textarea placeholder="Type your description here...." name="description" tabindex="5" required></textarea>
+          <textarea placeholder="Type your description here...." name="description" value="NEW" tabindex="5" required></textarea>
         </fieldset>
         <fieldset>
           <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Add Person</button>
