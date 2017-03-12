@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Address Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+      <div class="col-xs-6">
+          <ol class="list-group">
+              <li class="list-group-item active justify-content-between">
+                  <div class="row">
+                      <div class="col-xs-12"><h2>{{person.name}} {{person.surname}}:</h2></div>
+                  </div>
+              </li>
+              <li class="list-group-item justify-content-between">
+              	<h3><b>Address</b>:{{address.street}}/{{address.house_number}}</h3>
+              </li>
+              <li class="list-group-item justify-content-between">
+              	<h3><b>City</b>:{{address.city}}</h3>
+              </li>
+              <li class="list-group-item justify-content-between">
+              	<h3><b>Telephone</b>:{{tel1}} <b>Type</b>:{{tel2}}</h3>
+              </li>
+              <li class="list-group-item justify-content-between">
+              	<h3><b>Email</b>:{{email.email}}</h3>
+              </li>
+              <li class="list-group-item justify-content-between">
+              	<h3><b>Description</b>:{{person.description}}</h3>
+              </li>
+
+</body>
+</html>

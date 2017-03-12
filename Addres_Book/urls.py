@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from book.views import AddPerson,ModifyPerson,all_persons
+from book.views import AddPerson,ModifyPerson,all_persons,delete_person,person_details
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^new/$', AddPerson.as_view()),
-    url(r'^modify/$', ModifyPerson.as_view()),
     url(r'^all_persons/$', all_persons),
     url(r'^modify/(?P<person_id>\d+)$', ModifyPerson.as_view()),
+    url(r'^delete_person/(?P<person_id>\d+)$', delete_person),
+    url(r'^person_details/(?P<person_id>\d+)$', person_details),
 ]
