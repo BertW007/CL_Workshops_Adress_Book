@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from book.views import AddPerson,ModifyPerson,all_persons,delete_person,person_details
+from book.views import AddPerson,ModifyPerson,AllPersons,delete_person,person_details
+from book.views import AddEmail, EditEmail, delete_email, AddTelephone, EditTelephone, delete_telephone
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^new/$', AddPerson.as_view()),
-    url(r'^all_persons/$', all_persons),
+    url(r'^all_persons/$', AllPersons.as_view()),
     url(r'^modify/(?P<person_id>\d+)$', ModifyPerson.as_view()),
     url(r'^delete_person/(?P<person_id>\d+)$', delete_person),
     url(r'^person_details/(?P<person_id>\d+)$', person_details),
+    url(r'^edit_email/(?P<person_id>\d+)/(?P<email_id>\d+)$', EditEmail.as_view()),
+    url(r'^delete_email/(?P<person_id>\d+)/(?P<email_id>\d+)$', delete_email),
+    url(r'^add_email/(?P<person_id>\d+)$', AddEmail.as_view()),
+    url(r'^edit_telephone/(?P<person_id>\d+)/(?P<telephone_id>\d+)$', EditTelephone.as_view()),
+    url(r'^delete_telephone/(?P<person_id>\d+)/(?P<telephone_id>\d+)$', delete_telephone),
+    url(r'^add_telephone/(?P<person_id>\d+)$', AddTelephone.as_view()),
 ]

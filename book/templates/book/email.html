@@ -159,41 +159,13 @@
     <body>
     <div class="container">  
       <form id="contact" action="" method="post" >{% csrf_token %}
-        <h3>Person Form</h3>
-        <h4>Please fill in details below</h4>
-        <fieldset>
-          <input placeholder="Your name" name="name" type="text" value="{{person.name}}" tabindex="1" required autofocus>
-        </fieldset>
-        <fieldset>
-          <input placeholder="Your surname" name="surname" type="text" value="{{person.surname}}" tabindex="1" required autofocus>
-        </fieldset>
-        <fieldset>
-          <input placeholder="Your city" name="city" type="text" value="{{address.city}}" tabindex="1" required autofocus>
-        </fieldset>
-        <fieldset>
-          <input placeholder="Your street" name="street" type="text" value="{{address.street}}" tabindex="1" required autofocus>
-        </fieldset>
-        <fieldset>
-          <input placeholder="Your house number" name="house_number" type="text" value="{{address.house_number}}" tabindex="1" required autofocus>
-        </fieldset>
+        <h3>Email Form</h3>
+        <h4>{{person.name}} {{person.surname}} email:</h4>
         <fieldset>
           <input placeholder="Your Email Address" name="email" type="email" value="{{email.email}}" tabindex="2" required>
         </fieldset>
         <fieldset>
-          <input placeholder="Your Phone Number" name="telephone" type="tel" value="{{telephone.tel_number}}" tabindex="3" required>
-        </fieldset>
-        <fieldset>
-          <select name="type">
-			  <option value="1">Home</option>
-			  <option value="2">Work</option>
-			  <option value="3">Other</option>
-			</select>
-        </fieldset>        
-        <fieldset>
-          <textarea placeholder="Type your description here...." name="description" value="{{person.description}}" tabindex="5"></textarea>
-        </fieldset>
-        <fieldset>
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Add/Modify Person</button>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Add/Modify Email</button>
         </fieldset>
       </form>
     </div>

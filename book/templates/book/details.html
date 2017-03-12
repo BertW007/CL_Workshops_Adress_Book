@@ -15,24 +15,58 @@
           <ol class="list-group">
               <li class="list-group-item active justify-content-between">
                   <div class="row">
-                      <div class="col-xs-12"><h2>{{person.name}} {{person.surname}}:</h2></div>
+                      <div class="col-xs-12"><h3>{{person.name}} {{person.surname}}:</h3></div>
                   </div>
               </li>
               <li class="list-group-item justify-content-between">
-              	<h3><b>Address</b>:{{address.street}}/{{address.house_number}}</h3>
+              	<h4><b>Address</b> : {{address.street}}/{{address.house_number}}</h4>
               </li>
               <li class="list-group-item justify-content-between">
-              	<h3><b>City</b>:{{address.city}}</h3>
+              	<h4><b>City</b> : {{address.city}}</h4>
               </li>
+              
+              {% for telephone in telephones %}
               <li class="list-group-item justify-content-between">
-              	<h3><b>Telephone</b>:{{tel1}} <b>Type</b>:{{tel2}}</h3>
+              <div class="row">
+                <div class="col-xs-6">
+              	<h4><b>Telephone</b> : {{ telephone.tel_number }} <b>Type</b> : {{ telephone.type}}</h4>
+              	</div>
+              	<div class="col-xs-6">
+       				<a href="http://127.0.0.1:8000/delete_telephone/{{person.id}}/{{telephone.id}}" type="button" class="btn btn-danger pull-right">Delete</a>
+       				<a href="http://127.0.0.1:8000/edit_telephone/{{person.id}}/{{telephone.id}}" type="button" class="btn btn-primary pull-right">Edit</a>
+       				<a href="http://127.0.0.1:8000/add_telephone/{{person.id}}" type="button" class="btn btn-success pull-right">Add</a>
+          		 </div>
+          		</div>
               </li>
+			  {% endfor %}
+			  
+              {% for email in emails %}
               <li class="list-group-item justify-content-between">
-              	<h3><b>Email</b>:{{email.email}}</h3>
-              </li>
+               <div class="row">
+                <div class="col-xs-6">
+              	 <h4><b>Email</b> : {{ email.email }}</h4>
+              	 </div>
+              	 <div class="col-xs-6">
+       				<a href="http://127.0.0.1:8000/delete_email/{{person.id}}/{{email.id}}" type="button" class="btn btn-danger pull-right">Delete</a>
+       				<a href="http://127.0.0.1:8000/edit_email/{{person.id}}/{{email.id}}" type="button" class="btn btn-primary pull-right">Edit</a>
+       				<a href="http://127.0.0.1:8000/add_email/{{person.id}}" type="button" class="btn btn-success pull-right">Add</a>
+          		 </div>
+          		</div>
+             </li>
+			  {% endfor %}
+			  
               <li class="list-group-item justify-content-between">
-              	<h3><b>Description</b>:{{person.description}}</h3>
+              	<h4><b>Description</b>:{{person.description}}</h4>
               </li>
+              
+          </ol>
+          <div class="col-xs-12"> 
+            <a href="http://127.0.0.1:8000/modify/{{person.id}}" type="button" class="btn btn-primary pull-right">Edit</a>
+            <a href="http://127.0.0.1:8000/all_persons/" type="button" class="btn btn-success pull-right">All Persons</a>
+          </div>
+       </div>
 
 </body>
 </html>
+
+

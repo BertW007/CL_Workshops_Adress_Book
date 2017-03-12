@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Address Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="col-xs-5">
+        <ol class="list-group">
+            <li class="list-group-item active justify-content-between">
+                <div class="row">
+                    <div class="col-xs-6">
+                       <h3>Address Book:</h3>
+                    </div>
+                    <div class="col-xs-6">
+                     <form action="http://127.0.0.1:8000/all_persons/" method="POST">{% csrf_token %}
+                     	<input type="text" class="form-control col-xs-4" name="search">
+                       	<button type="submit" class="btn btn-info pull-right" >Search</button>
+                     </form>
+                    </div>
+                </div>
+            </li>
+            
+            {% for person in persons %}
+            <li class="list-group-item justify-content-between">
+            <div class="row">  
+               <div class="col-xs-9"> 
+                   <h4><a href="http://127.0.0.1:8000/person_details/{{person.id}}">{{person.name}} {{person.surname}}</a></h4>
+               </div>
+               <div class="col-xs-1"> 
+                   <a href="http://127.0.0.1:8000/modify/{{person.id}}" type="button" class="btn btn-primary pull-right">Edit</a>
+               </div>
+               <div class="col-xs-2">     
+                   <a href="http://127.0.0.1:8000/delete_person/{{person.id}}" type="button" class="btn btn-danger pull-right">Delete</a>
+               </div>    
+            </div>
+            </li>
+           {% endfor %}
+           
+           
+           
+          </ol>
+          	<div class="col-xs-12">  
+            	<a href="http://127.0.0.1:8000/new/" type="button" class="btn btn-success pull-right" >Add</a>
+			</div>           
+	</div>
+</body>
+</html>
