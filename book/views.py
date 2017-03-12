@@ -31,7 +31,6 @@ class AddPerson(View):
 class ModifyPerson(View):
     
     def get(self,request,person_id):
-        response = HttpResponse('GET')
         person = Person.objects.get(pk=person_id)
         address = person.address
         email = person.email_set.all()[0]
@@ -45,7 +44,6 @@ class ModifyPerson(View):
         return render(request,'book/new_form.html',context)
     
     def post(self,request,person_id):
-        
         person = Person.objects.get(pk=person_id)
         
         person.name = request.POST.get('name')
@@ -57,20 +55,16 @@ class ModifyPerson(View):
         person.telephone = request.POST.get('telephone')
         person.type = request.POST.get('type')
         person.description = request.POST.get('description')
-        person.save()
-        
-        response=HttpResponse('PERSON DETAILS MODIFIED')       
+        person.save()       
     
         return redirect('/person_details/{}'.format(person_id))
     
 class AllPersons(View):
     
     def get(self,request):
-        response = HttpResponse('GET')
         persons = Person.objects.order_by('name')
         context = {'persons':persons}
         template = loader.get_template('book/all_persons.html')
-          
         return render(request,'book/all_persons.html',context)
         
     def post(self,request):
@@ -78,24 +72,13 @@ class AllPersons(View):
         persons = persons.order_by('name')
         context = {'persons':persons}
         template = loader.get_template('book/all_persons.html')
-           
         return render(request,'book/all_persons.html',context)
-
-# def all_persons(request):
-#     
-#     
-#     persons = Person.objects.order_by('name')
-#     context = {'persons':persons}
-#     template = loader.get_template('book/all_persons.html')
-#       
-#     return render(request,'book/all_persons.html',context)
 
 def delete_person(request,person_id):
     Person.objects.get(pk=person_id).delete()
     return redirect('/all_persons/')
 
 def person_details(request,person_id):
-    response = HttpResponse()
     person = Person.objects.get(pk=person_id)
     address = person.address
     telephones = person.telephone_set.all()
