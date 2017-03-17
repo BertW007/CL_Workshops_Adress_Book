@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.fields.related import ForeignKey
 
 class Person(models.Model):
     name = models.CharField(max_length=32)
@@ -26,14 +25,14 @@ TYPE=((1,'home'),
 class Telephone(models.Model):
     tel_number = models.CharField(max_length=16)
     type = models.IntegerField(choices=TYPE)
-    person = ForeignKey(Person)
+    person = models.ForeignKey(Person)
     
     def __str__(self):
         return '{} {}'.format(self.tel_number,self.get_type_display())
     
 class Email(models.Model):
     email = models.EmailField()
-    person = ForeignKey(Person)
+    person = models.ForeignKey(Person)
     
     def __str__(self):
         return '{}'.format(self.email)
