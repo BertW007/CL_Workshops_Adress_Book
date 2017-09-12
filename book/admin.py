@@ -1,5 +1,5 @@
+from book.models import Address, Email, Person, Telephone
 from django.contrib import admin
-from book.models import Person,Address,Telephone,Email
 
 admin.site.register(Person)
 admin.site.register(Address)
