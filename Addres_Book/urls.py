@@ -1,4 +1,4 @@
-"""Addres_Book URL Configuration
+"""Address_Book URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from book.views import AddPerson,ModifyPerson,AllPersons,delete_person,person_details
+from book.views import AddPerson, ModifyPerson, AllPersons, delete_person, person_details
 from book.views import AddEmail, EditEmail, delete_email, AddTelephone, EditTelephone, delete_telephone
 
 urlpatterns = [
